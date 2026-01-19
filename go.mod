@@ -1,10 +1,12 @@
-module kura
+module github.com/LuigiPereira1709/kura
 
 go 1.25.5
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.41.1
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.95.1
+	github.com/goccy/go-json v0.10.5
+	github.com/valyala/fastjson v1.6.7
 )
 
 require (

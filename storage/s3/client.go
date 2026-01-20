@@ -10,7 +10,7 @@ type Store struct {
 	Client *s3.Client
 }
 
-// NewService creates a new S3Service instance with the provided S3 client.
+// New creates a new S3Service instance with the provided S3 client.
 func New(cfg aws.Config) *Store {
 	return &Store{
 		Client: s3.NewFromConfig(cfg),

@@ -30,7 +30,7 @@ func (s *Store) ListObjectsWithoutPrefix(bucket, notPrefix string) ([]string, er
 }
 
 // ListObjectsForPrefix lists all objects in the specified S3 bucket that match the given prefix.
-func (s *S3Service) ListObjectsForPrefix(bucket, prefix string) ([]string, error) {
+func (s *Store) ListObjectsForPrefix(bucket, prefix string) ([]string, error) {
 	req := &s3.ListObjectsV2Input{
 		Bucket: aws.String(bucket),
 		Prefix: aws.String(prefix),
@@ -43,7 +43,7 @@ func (s *S3Service) ListObjectsForPrefix(bucket, prefix string) ([]string, error
 
 	var keys []string
 	for _, obj := range resp.Contents {
-		if obj != nil {
+		if obj.Key != nil {
 			keys = append(keys, *obj.Key)
 		}
 	}
